@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'principal/assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'principal/assets/css/Navbar-Right-Links-Dark-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'principal/assets/css/Testimonials-Centered-images.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'panel/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'panel/customss.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <link rel="stylesheet" href="{% static 'principal/assets/aos/aos.css' %}" />
+
+  <title>{% block title %}{%endblock%}</title>
+
+
+
+</head>
+
+<body class="cuerpo">
+
+
+  <!– include navbar –>
+   {% include "hotelito/template/componentes/nav.html" %}
+
+   {% block content %}{% endblock %}
+
+    <!– include footer –>
+    {% include "hotelito/template/componentes/footer.html" %}
+    <script src="{% static 'principal/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+
+
+<script src="{% static 'principal/assets/aos/aos.js' %}"></script>
+<script src="{% static 'personalizado.js' %}"></script>
+ <script>
+ AOS.init();
+ </script>
+
+
+</body>
+
+</html>

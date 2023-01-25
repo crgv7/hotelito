@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--- Carga a carpeta static-->
+    {% load static %}
+    <!--- Carga crispy-form-->
+    {% load crispy_forms_tags %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'registrar/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'registrar/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'registrar/css/customs.css' %}">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content bg-dark">
+                    <form method="post" id="signup-form" class="signup-form">{% csrf_token %}
+                        <h2 class="form-title text-light">Crear Cuenta</h2>
+                        <div class="form-group">
+                          	<div class="text-light">{{form|crispy}}</div>
+                          <!--  Codigo para mostra mensaje de error -->
+                          {% if messages %}
+
+                          {% for mensaje in messages %}
+
+                          <div class="alert alert-danger">{{mensaje}} </div> <!--  codigo css para el mensaje-->
+
+                          {% endfor%}
+
+                          {% endif %}
+
+
+                        </div>
+
+                        <div class="form-group text-light">
+                          <input type="checkbox" name="agree-term" id="agree-term" class="agree-term text-light" />
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>Estoy de acuerdo con los terminos  <a href="#" class="term-service">Terms of service</a></label>
+                        </div>
+                        <div class="form-group text-light">
+                            <button type="submit" class="btn btn-primary  mb-3 w-100" id="submit">Enviar</button>
+                        </div>
+                    </form>
+                    <p class="loginhere text-light">
+                        Ya tengo cuenta ? <a href="/login" class="loginhere-link">  Autenticar aqui</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'registrar/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'registrar/js/main.js' %}"></script>
+
+
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

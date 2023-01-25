@@ -1,0 +1,94 @@
+
+{% extends "hotelito/template/base/base.html" %}  <!-- hereda de la plantilla base -->
+
+
+ <!-- Carga los css y los JavaScript de la carpeta static -->
+{% block title %} Panel {% endblock %}
+
+
+
+{% block content %}
+   <!– panel –>
+
+        <div class="container rounded-3  border-dark bg-dark sombra"  data-aos="fade-right" data-aos-duration="1000" data-aos-delay="50" data-aos-once="true">
+      <div>
+
+    <div class="row  text-center  m-4 ">
+        <h4 class="mt-4">Incidencias</h4>
+      </div>
+    <div class="row mt-5">
+       <div class="col-6 d-flex ">
+    
+        <form action="" method="post" class="d-flex"> {% csrf_token %}
+    <div class="">
+      <div class="mb-3">
+        <input type="text"
+          class="form-control" name="buscar" id="buscar" aria-describedby="helpId" placeholder="buscar">
+      </div>
+    </div>
+        <div class=" m-1 w-25">
+
+         <button> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-search w-50 colorprincipal" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </button>
+        </div>
+
+
+      </form>
+       </div>
+
+       <div class="col-6 d-flex justify-content-end">
+        <div class="w-25  d-flex justify-content-center">
+        <a href="paneli/add_incidencia/">
+          <span class="text-light">Añadir</span>
+          <svg   xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus colorprincipal" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg>
+        </a>
+
+        </div>
+
+       </div>
+
+    </div>
+
+</div>
+
+<!– Tabla –>
+<div class="container-md mt-4 pb-5 table-responsive-md">
+  <table class="table text-light">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Incidencia</th>
+        <th scope="col">Fecha</th>
+
+      </tr>
+    </thead>
+    <tbody>
+       {%for incident in incidencia %}  <!-- en esta linea se accede al objeto reservaciones que se manda desde la vista,
+                                          mediante el for se guarda en una variable reserv cada obejeto -->
+       <tr>
+       <td>{{incident.nombre}}</td>     <!--  se accede al atributo nombre de la variable reserv, para mostrar el nombre en la fila de la tabla      -->
+       <td>{{incident.incidencia}}</td>
+       <td>{{incident.fecha}}</td>
+       <td><a href="paneli/editar/{{incident.id}}"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil-square colorprincipal" viewBox="0 0 16 16">
+ <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+ <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg></a></td>
+<td><a href="paneli/eliminar/{{incident.id}}" class="btndel">  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash colorprincipal" viewBox="0 0 16 16">
+<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+</svg></a></td>
+       <tr>
+       {%endfor%}
+    </tbody>
+  </table>
+  <!– end tabla –>
+
+</div></div></div>
+
+
+
+{% endblock %}

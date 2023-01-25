@@ -1,0 +1,68 @@
+.colorprincipal{
+color: white
+
+}
+
+.textbuscar{
+    width: 20%;
+}
+
+.mg-l {
+    margin-left: 100px;
+}
+
+
+
+    a:link, a:visited,  a:hover, a:active
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+.botones{
+    width: 50px;
+}
+
+
+.nombre_Clase{
+    background-color: aquamarine;
+}
+
+.footers{
+  background-color: #e65ac7;
+}
+
+.sombra{
+  box-shadow: 5px 5px 2px 5px black;
+}
+
+.cuerpo{
+  background-image: url('/media/h2.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;"
+}
+
+.logo{
+  border-radius: 50%
+}
+
+
+
+.logo-circulo {
+  font-size: 60px;
+  color: #333333;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #212529;
+  margin: 0 auto;
+}

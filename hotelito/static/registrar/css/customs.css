@@ -1,0 +1,14 @@
+
+  input:invalid:required {
+    border-color: red;
+  }
+
+  input:valid {
+    border: 1px solid #000000;
+  }
+
+  .colortext{
+    color: red;
+    text-decoration-color: red;
+  }
+  

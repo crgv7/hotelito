@@ -1,0 +1,46 @@
+
+{% extends "hotelito/template/base/base.html" %}
+{% load crispy_forms_tags %}
+  {% block content %}
+    <form method="post">{% csrf_token %}
+    <div class="container mt-4 rounded-3 bg-dark text-light sombra w-50"  data-aos="fade-right" data-aos-duration="1000" data-aos-delay="50" data-aos-once="true">
+     <div class="row">
+            <div class="row text-center"><h5>Crear incidencia</h5></div>
+            <form>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3 w-50">
+                              {{form.nombre|as_crispy_field}}
+                          </div>
+                          <div class="mb-3">
+                            {{form.incidencia |as_crispy_field}}
+                          </div>
+
+                          <div class="mb-3 w-50">
+                            <span class= "">{{form.fecha|as_crispy_field}}</span>
+                        </div>
+                    </div>
+          
+                    </div>
+              </form>
+
+              <div class="container p-4">
+                <div class="row d-flex justify-content-end mt-4">
+
+                <a href="/paneli/" type="button" class="btn btn-light m-2 w-25">Cancelar</a>
+                <button type="submit" class="btn btn-primary m-2 w-25">Guardar</button>
+                </div>
+
+
+              </div>
+
+
+
+
+        </div>
+    </div>
+  </form>
+
+
+{% endblock %}
+
